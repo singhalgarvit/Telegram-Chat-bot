@@ -1,6 +1,8 @@
 const TelegramBot = require('node-telegram-bot-api');
 const OpenAI = require("openai");
-const dotenv=require('dotenv')
+const dotenv=require('dotenv');
+const express=require('express')
+const app=express();
 dotenv.config()
 
 const token =process.env.token;
@@ -41,4 +43,4 @@ bot.on('message',async (msg) => {
 
 
 
- 
+ app.listen(process.env.PORT || 8888);
