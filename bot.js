@@ -20,16 +20,22 @@ bot.on('message',async (msg) => {
       bot.sendMessage(chatId, 'Welcome to the Garvit Singhal bot! Ask your question');
     }
     else{
+      try{
         const chatCompletion = await openai.chat.completions.create({
-            model: "mistralai/Mistral-7B-Instruct-v0.2",
-            messages: [
-              { role: "system", content: "You are a chat bot , answer in a sweet and helpful manner but keep the answer short   " },
-              { role: "user", content: messageText}
-            ],
-            temperature: 0.7,
-            max_tokens: 128,
-          });
-        bot.sendMessage(chatId,chatCompletion.choices[0].message.content);
+          model: "mistralai/Mistral-7B-Instruct-v0.2",
+          messages: [
+            { role: "system", content: "You are a chat bot , answer in a sweet and helpful manner but keep the answer short   " },
+            { role: "user", content: messageText}
+          ],
+          temperature: 0.7,
+          max_tokens: 128,
+        });
+      bot.sendMessage(chatId,chatCompletion.choices[0].message.content);
+      }
+      catch{
+        bot.sendMessage(chatId,"The chatbot is under maintenance stay tuned for more ...")
+      }
+       
     }
   });
 
