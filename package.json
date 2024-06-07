@@ -1,0 +1,16 @@
+{
+  "name": "telegram-chat-bot",
+  "version": "1.0.0",
+  "description": "This is the telegram chatbot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Garvit singhal",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "node-telegram-bot-api": "^0.66.0",
+    "openai": "^4.49.0"
+  }
+}
